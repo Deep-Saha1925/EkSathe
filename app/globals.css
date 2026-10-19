@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  background: #0b1020;
+}
+
+body {
+  color: #e2e8f0;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+@layer components {
+  .input {
+    @apply h-14 w-full rounded-2xl border border-white/10 bg-slate-900 px-4 text-lg text-white outline-none placeholder:text-slate-500 focus:border-orange-400 focus:ring-2 focus:ring-orange-400/30;
+  }
+  .btn-primary {
+    @apply flex h-14 w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 to-rose-500 text-lg font-semibold text-white shadow-lg shadow-orange-900/30 transition active:scale-[0.98] disabled:opacity-60;
+  }
+  .btn-secondary {
+    @apply flex h-14 w-full items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 text-lg font-semibold text-white transition active:scale-[0.98] disabled:opacity-60;
+  }
+}
+
+/* ---------- Leaflet ---------- */
+.leaflet-container {
+  background: #0f172a;
+  font-family: inherit;
+}
+.leaflet-top {
+  margin-top: calc(env(safe-area-inset-top) + 76px);
+}
+.leaflet-control-attribution {
+  background: rgba(15, 23, 42, 0.8) !important;
+  color: #94a3b8 !important;
+  font-size: 10px;
+}
+.leaflet-control-attribution a {
+  color: #cbd5e1 !important;
+}
+
+.pp-icon {
+  background: transparent;
+  border: 0;
+}
+.pp-marker {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+.pp-dot {
+  position: absolute;
+  left: -9px;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--c);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.pp-me .pp-dot {
+  left: -11px;
+  top: -11px;
+  width: 22px;
+  height: 22px;
+}
+.pp-me .pp-dot::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 9999px;
+  border: 2px solid var(--c);
+  animation: pp-pulse 2s ease-out infinite;
+}
+.pp-label {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--c);
+}
+.pp-me .pp-label {
+  top: 19px;
+}
+.pp-faded {
+  opacity: 0.45;
+}
+@keyframes pp-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
