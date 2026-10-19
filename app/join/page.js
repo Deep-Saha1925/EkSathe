@@ -53,7 +53,7 @@ function JoinForm() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           maxLength={24}
-          placeholder="e.g. Priya"
+          placeholder="e.g. Snaha"
           autoComplete="given-name"
         />
       </label>
